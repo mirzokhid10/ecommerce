@@ -23,9 +23,9 @@ class CategoryDataTable extends DataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('action', function($query) {
-                $editBtn = "<a href='".route('admin.slider.edit', $query->id)."'
+                $editBtn = "<a href='".route('admin.category.edit', $query->id)."'
                 class='btn btn-primary'><i class='far fa-edit'></i></a>";
-                $deleteBtn = "<a href='".route('admin.slider.destroy', $query->id)."'
+                $deleteBtn = "<a href='".route('admin.category.destroy', $query->id)."'
                 class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
                 return $editBtn.$deleteBtn;
@@ -87,7 +87,7 @@ class CategoryDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-            Column::make('id'),
+            Column::make('id')->width(100),
             Column::make('icon'),
             Column::make('name'),
             Column::make('status')->width(100),

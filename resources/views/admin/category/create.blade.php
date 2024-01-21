@@ -1,5 +1,4 @@
 @extends('admin.layouts.master')
-
 @section('content')
     <!-- Main Content -->
     <section class="section">
@@ -12,15 +11,16 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>Create Category</h4>
-
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.category.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.category.store') }}" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label>Icon</label>
-                                    <button class="btn btn-secondary" data-selected-class="btn-danger"
-                                    data-unselected-class="btn-info" role="iconpicker" name="icon"></button>
+                                    <div>
+                                        <button class="btn btn-primary" data-icon="" data-selected-class="btn-danger"
+                                            data-unselected-class="btn-info" role="iconpicker" name="icon"></button>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Name</label>
@@ -42,7 +42,3 @@
         </div>
     </section>
 @endsection
-
-{{-- @push('scripts')
-    {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
-@endpush --}}
