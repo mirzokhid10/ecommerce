@@ -1,3 +1,7 @@
+@php
+    $sliders = App\Models\Slider::where('status', 1)
+    ->orderBy('serial', 'asc')->get()
+@endphp
 <section id="wsus__banner">
     <div class="container">
         <div class="row">
