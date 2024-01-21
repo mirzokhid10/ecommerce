@@ -97,14 +97,14 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        // $category = Category::findOrFail($id);
+        $category = Category::findOrFail($id);
         // $subCategory = SubCategory::where('category_id', $category->id)->count();
         // if($subCategory > 0){
         //     return response(['status' => 'error', 'message' => 'This items contain, sub items for delete this you have to delete the sub items first!']);
         // }
-        // $category->delete();
+        $category->delete();
 
-        // return response(['status' => 'success', 'Deleted Successfully!']);
+        return response(['status' => 'success', 'Deleted Successfully!']);
     }
 
     public function changeStatus(Request $request)
