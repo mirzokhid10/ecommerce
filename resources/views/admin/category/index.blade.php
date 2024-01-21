@@ -13,12 +13,12 @@
                         <div class="card-header">
                             <h4>All Categories</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.slider.create') }}" class="btn btn-primary"><i
+                                <a href="{{ route('admin.category.create') }}" class="btn btn-primary"><i
                                         class="fas fa-plus"></i> Create New</a>
                             </div>
                         </div>
                         <div class="card-body">
-                            {{ $dataTable->table() }}
+                            {{-- {{ $dataTable->table() }} --}}
                         </div>
                     </div>
                 </div>
@@ -27,6 +27,6 @@
     </section>
 @endsection
 
-@push('scripts')
+{{-- @push('scripts')
     {{ $dataTable->scripts(attributes: ['type' => 'module']) }}
-@endpush
+@endpush --}}

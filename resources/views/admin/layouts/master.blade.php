@@ -22,6 +22,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/components.css') }}">
+    <link rel="stylesheet" href="{{asset('backend/assets/css/bootstrap-iconpicker.min.css')}}">
 
     {{-- datatable net --}}
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
@@ -89,6 +90,8 @@
     <script src="{{ asset('backend/assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/latest.min.js"></script>
+    <script src="{{asset('backend/assets/js/bootstrap-iconpicker.bundle.min.js')}}"></script>
+    <script src="{{asset('backend/assets/js/bootstrap-iconpicker-iconset-all.min.js')}}"></script>
 
     {{-- datatable js --}}
     <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
