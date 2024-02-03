@@ -8,6 +8,8 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\ChildCategory;
 use App\Models\Product;
+use App\Models\ProductImageGallery;
+use App\Models\ProductVariant;
 use App\Models\SubCategory;
 use App\Traits\ImageUploadTrait;
 use Illuminate\Http\Request;
@@ -174,19 +176,19 @@ class ProductController extends Controller
         $this->deleteImage($product->thumb_image);
 
         /** Delete product gallery images */
-        // $galleryImages = ProductImageGallery::where('product_id', $product->id)->get();
-        // foreach($galleryImages as $image){
-        //     $this->deleteImage($image->image);
-        //     $image->delete();
-        // }
+        $galleryImages = ProductImageGallery::where('product_id', $product->id)->get();
+        foreach($galleryImages as $image){
+            $this->deleteImage($image->image);
+            $image->delete();
+        }
 
         /** Delete product variants if exist */
-        // $variants = ProductVariant::where('product_id', $product->id)->get();
+        $variants = ProductVariant::where('product_id', $product->id)->get();
 
-        // foreach($variants as $variant){
-        //     $variant->productVariantItems()->delete();
-        //     $variant->delete();
-        // }
+        foreach($variants as $variant){
+            $variant->productVariantItems()->delete();
+            $variant->delete();
+        }
 
         $product->delete();
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
