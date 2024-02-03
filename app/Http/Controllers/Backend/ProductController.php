@@ -131,7 +131,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         /** Handle the image upload */
-        $imagePath = $this->updateImage($request, 'image', 'uploads', $product->thumb_image);
+        $imagePath = $this->updateImage($request, 'image', 'uploads/product_images', $product->thumb_image);
 
         $product->thumb_image = empty(!$imagePath) ? $imagePath : $product->thumb_image;
         $product->name = $request->name;
