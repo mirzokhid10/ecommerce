@@ -6,8 +6,8 @@ use App\DataTables\ProductImageGalleryDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\ProductImageGallery;
-use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
+use Illuminate\Http\Request;
 
 class ProductImageGalleryController extends Controller
 {
@@ -39,7 +39,7 @@ class ProductImageGalleryController extends Controller
         ]);
 
         /** Handle image upload */
-        $imagePaths = $this->uploadMultiImage($request, 'image', 'uploads/productImageGallery');
+        $imagePaths = $this->uploadMultiImage($request, 'image', 'uploads/users/admin/productImageGallery');
 
         foreach($imagePaths as $path){
             $productImageGallery = new ProductImageGallery();

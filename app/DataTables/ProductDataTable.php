@@ -35,7 +35,6 @@ class ProductDataTable extends DataTable
                   <a class="dropdown-item has-icon" href="'.route('admin.products-variant.index', ['product' => $query->id]).'"><i class="far fa-file"></i> Variants</a>
                 </div>
               </div>';
-//'.route('admin.products-variant.index', ['product' => $query->id]).'
 
                 return $editBtn.$deleteBtn.$moreBtn;
             })
@@ -86,7 +85,9 @@ class ProductDataTable extends DataTable
      */
     public function query(Product $model): QueryBuilder
     {
-        return $model->where('vendor_id', Auth::user()->vendor->id)->newQuery();
+        // return $model->newQuery();
+        return $model->with('vendor')->newQuery();
+        // return $model->where('vendor_id', Auth::user()->vendor->id)->newQuery();
     }
 
     /**
@@ -99,7 +100,7 @@ class ProductDataTable extends DataTable
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     //->dom('Bfrtip')
-                    ->orderBy(0)
+                    ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([
                         Button::make('excel'),
@@ -117,7 +118,6 @@ class ProductDataTable extends DataTable
     public function getColumns(): array
     {
         return [
-
             Column::make('id'),
             Column::make('image'),
             Column::make('name'),

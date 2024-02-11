@@ -35,7 +35,6 @@
             $('body').on('click', '.change-status', function() {
                 let isChecked = $(this).is(':checked');
                 let id = $(this).data('id');
-
                 $.ajax({
                     url: "{{ route('admin.product.change-status') }}",
                     method: 'PUT',

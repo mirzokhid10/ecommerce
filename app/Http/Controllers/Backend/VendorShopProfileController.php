@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vendor;
-use Illuminate\Http\Request;
 use App\Traits\ImageUploadTrait;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class VendorShopProfileController extends Controller
@@ -46,7 +46,7 @@ class VendorShopProfileController extends Controller
         ]);
 
         $vendor = Vendor::where('user_id', Auth::user()->id)->first();
-        $bannerPath = $this->updateImage($request, 'banner', 'uploads/users/vendor', $vendor->banner);
+        $bannerPath = $this->updateImage($request, 'banner', 'uploads', $vendor->banner);
         $vendor->banner = empty(!$bannerPath) ? $bannerPath : $vendor->banner;
         $vendor->shop_name = $request->shop_name;
         $vendor->phone = $request->phone;

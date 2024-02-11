@@ -17,7 +17,7 @@
                             <h4>Create Product</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('admin.products.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label>Image</label>
@@ -26,7 +26,7 @@
 
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                    <input type="text" class="form-control" name="name" value="{{old('name')}}">
                                 </div>
 
                                 <div class="row">
@@ -36,7 +36,7 @@
                                             <select id="inputState" class="form-control main-category" name="category">
                                                 <option value="">Select</option>
                                                 @foreach ($categories as $category)
-                                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -53,8 +53,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="inputState">Child Category</label>
-                                            <select id="inputState" class="form-control child-category"
-                                                name="child_category">
+                                            <select id="inputState" class="form-control child-category" name="child_category">
                                                 <option value="">Select</option>
                                             </select>
                                         </div>
@@ -67,54 +66,49 @@
                                     <select id="inputState" class="form-control" name="brand">
                                         <option value="">Select</option>
                                         @foreach ($brands as $brand)
-                                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                            <option value="{{$brand->id}}">{{$brand->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label>SKU</label>
-                                    <input type="text" class="form-control" name="sku" value="{{ old('sku') }}">
+                                    <input type="text" class="form-control" name="sku" value="{{old('sku')}}">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input type="text" class="form-control" name="price" value="{{ old('price') }}">
+                                    <input type="text" class="form-control" name="price" value="{{old('price')}}">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Offer Price</label>
-                                    <input type="text" class="form-control" name="offer_price"
-                                        value="{{ old('offer_price') }}">
+                                    <input type="text" class="form-control" name="offer_price" value="{{old('offer_price')}}">
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Offer Start Date</label>
-                                            <input type="text" class="form-control datepicker" name="offer_start_date"
-                                                value="{{ old('offer_start_date') }}">
+                                            <input type="text" class="form-control datepicker" name="offer_start_date" value="{{old('offer_start_date')}}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Offer End Date</label>
-                                            <input type="text" class="form-control datepicker" name="offer_end_date"
-                                                value="{{ old('offer_end_date') }}">
+                                            <input type="text" class="form-control datepicker" name="offer_end_date" value="{{old('offer_end_date')}}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Stock Quantity</label>
-                                    <input type="number" min="0" class="form-control" name="qty"
-                                        value="{{ old('qty') }}">
+                                    <input type="number" min="0" class="form-control" name="qty" value="{{old('qty')}}">
                                 </div>
 
                                 <div class="form-group">
                                     <label>Video Link</label>
-                                    <input type="text" class="form-control" name="video_link"
-                                        value="{{ old('video_link') }}">
+                                    <input type="text" class="form-control" name="video_link" value="{{old('video_link')}}">
                                 </div>
 
 

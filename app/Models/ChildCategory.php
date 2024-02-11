@@ -18,9 +18,4 @@ class ChildCategory extends Model
     {
         return $this->belongsTo(SubCategory::class);
     }
-
-    public function childCategories()
-    {
-        return $this->hasMany(ChildCategory::class);
-    }
 }

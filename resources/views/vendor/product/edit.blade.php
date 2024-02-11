@@ -74,7 +74,7 @@ Product
 
                     </div>
 
-                    <div class="form-group wsus__input">
+                    <div class="form-group wsus__input mt-2">
                         <label for="inputState">Brand</label>
                         <select id="inputState" class="form-control" name="brand">
                             <option value="">Select</option>
@@ -84,7 +84,7 @@ Product
                         </select>
                     </div>
 
-                    <div class="form-group wsus__input">
+                    <div class="form-group wsus__input mt-2">
                         <label>SKU</label>
                         <input type="text" class="form-control" name="sku" value="{{$product->sku}}">
                     </div>
@@ -154,6 +154,7 @@ Product
                           <option {{$product->status == 0 ? 'selected' : ''}} value="0">Inactive</option>
                         </select>
                     </div>
+                    <br>
                     <button type="submmit" class="btn btn-primary">Update</button>
                 </form>
               </div>

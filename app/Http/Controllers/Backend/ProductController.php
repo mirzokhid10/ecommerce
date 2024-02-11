@@ -16,7 +16,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-
 class ProductController extends Controller
 {
     use ImageUploadTrait;
@@ -59,7 +58,6 @@ class ProductController extends Controller
 
         /** Handle the image upload */
         $imagePath = $this->uploadImage($request, 'image', 'uploads');
-
         $product = new Product();
         $product->thumb_image = $imagePath;
         $product->name = $request->name;
@@ -133,7 +131,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         /** Handle the image upload */
-        $imagePath = $this->updateImage($request, 'image', 'uploads/product_images', $product->thumb_image);
+        $imagePath = $this->updateImage($request, 'image', 'uploads', $product->thumb_image);
 
         $product->thumb_image = empty(!$imagePath) ? $imagePath : $product->thumb_image;
         $product->name = $request->name;
@@ -191,6 +189,7 @@ class ProductController extends Controller
         }
 
         $product->delete();
+
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
     }
 

@@ -11,10 +11,13 @@ use Illuminate\Http\Request;
 
 class ProductVariantController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(Request $request, ProductVariantDataTable $dataTable)
     {
         $product = Product::findOrFail($request->product);
-        return $dataTable->render('admin.product.products-variant.index', compact('product'));
+        return $dataTable->render('admin.product.product-variant.index', compact('product'));
     }
 
     /**
@@ -22,7 +25,7 @@ class ProductVariantController extends Controller
      */
     public function create()
     {
-        return view('admin.product.products-variant.create');
+        return view('admin.product.product-variant.create');
     }
 
     /**
@@ -62,7 +65,7 @@ class ProductVariantController extends Controller
     public function edit(string $id)
     {
         $variant = ProductVariant::findOrFail($id);
-        return view('admin.product.products-variant.edit', compact('variant'));
+        return view('admin.product.product-variant.edit', compact('variant'));
     }
 
     /**
@@ -96,7 +99,6 @@ class ProductVariantController extends Controller
             return response(['status' => 'error', 'message' => 'This variant contain variant items in it delete the variant items first for delete this variant!']);
         }
         $varinat->delete();
-
         return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
 
     }
@@ -106,7 +108,6 @@ class ProductVariantController extends Controller
         $varinat = ProductVariant::findOrFail($request->id);
         $varinat->status = $request->status == 'true' ? 1 : 0;
         $varinat->save();
-
         return response(['message' => 'Status has been updated!']);
     }
 }

@@ -28,7 +28,6 @@ class ProductVariantDataTable extends DataTable
                 $editBtn = "<a href='".route('admin.products-variant.edit', $query->id)."' class='btn btn-primary'><i class='far fa-edit'></i></a>";
                 $deleteBtn = "<a href='".route('admin.products-variant.destroy', $query->id)."' class='btn btn-danger ml-2 delete-item'><i class='far fa-trash-alt'></i></a>";
 
-
                 return $veriantItems.$editBtn.$deleteBtn;
             })
             ->addColumn('status', function($query){
@@ -67,7 +66,7 @@ class ProductVariantDataTable extends DataTable
                 ->columns($this->getColumns())
                 ->minifiedAjax()
                 //->dom('Bfrtip')
-                ->orderBy(0)
+                ->orderBy(1)
                 ->selectStyleSingle()
                 ->buttons([
                     Button::make('excel'),

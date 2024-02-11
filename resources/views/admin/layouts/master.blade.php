@@ -3,33 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="csrf-token" content="{{csrf_token()}}">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>General Dashboard &mdash; Stisla</title>
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/modules/bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/modules/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/fontawesome/css/all.min.css')}}">
 
     <!-- CSS Libraries -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/modules/jqvmap/dist/jqvmap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/modules/weather-icon/css/weather-icons-wind.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/modules/summernote/summernote-bs4.css') }}">
-    {{-- toast css --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    {{-- datatable link css --}}
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/jqvmap/dist/jqvmap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/weather-icon/css/weather-icons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/weather-icon/css/weather-icons-wind.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/summernote/summernote-bs4.css')}}">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-    <!-- Template CSS -->
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('backend/assets/css/components.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
     <link rel="stylesheet" href="{{asset('backend/assets/css/bootstrap-iconpicker.min.css')}}">
     <link rel="stylesheet" href="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.css')}}">
-    {{-- datatable net --}}
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{asset('backend/assets/modules/select2/dist/css/select2.min.css')}}">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/assets/css/components.css')}}">
 
-    <!-- Start GA -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    {{-- @if($settings->layout === 'RTL')
+    <link rel="stylesheet" href="{{asset('backend/assets/css/rtl.css')}}">
+    @endif --}}
 
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -50,11 +50,11 @@
             <div class="navbar-bg"></div>
             <!-- Navbar Content -->
             @include('admin.layouts.navbar')
-            <!-- Navbar Content -->
+            <!-- Navbar Content End-->
 
-            <!-- Sidebar Content -->
+            <!-- sidebar Content -->
             @include('admin.layouts.sidebar')
-            <!-- Sidebar Content -->
+            <!-- sidebar Content -->
 
             <!-- Main Content -->
             <div class="main-content">
@@ -73,58 +73,53 @@
     </div>
 
     <!-- General JS Scripts -->
-    <script src="{{ asset('backend/assets/modules/jquery.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/popper.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/tooltip.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/moment.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/stisla.js') }}"></script>
-
-    <script src="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/jquery.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/popper.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/tooltip.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/nicescroll/jquery.nicescroll.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/moment.min.js')}}"></script>
+    <script src="{{asset('backend/assets/js/stisla.js')}}"></script>
 
     <!-- JS Libraies -->
-    <script src="{{ asset('backend/assets/modules/simple-weather/jquery.simpleWeather.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/chart.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/jqvmap/dist/jquery.vmap.min.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/summernote/summernote-bs4.js') }}"></script>
-    <script src="{{ asset('backend/assets/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
-    {{-- toastr js --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-
-    {{-- icon js --}}
-    <script src="{{asset('backend/assets/js/bootstrap-iconpicker.bundle.min.js')}}"></script>
-    <script src="{{asset('backend/assets/js/bootstrap-iconpicker-iconset-all.min.js')}}"></script>
-
-    {{-- datatable js --}}
-    <script src="//cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="{{asset('backend/assets/modules/simple-weather/jquery.simpleWeather.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/chart.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/jqvmap/dist/jquery.vmap.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/jqvmap/dist/maps/jquery.vmap.world.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/summernote/summernote-bs4.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/chocolat/dist/js/jquery.chocolat.min.js')}}"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{asset('backend/assets/js/bootstrap-iconpicker.bundle.min.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{asset('backend/assets/modules/select2/dist/js/select2.full.min.js')}}"></script>
 
     <!-- Page Specific JS File -->
-    <script src="{{ asset('backend/assets//js/page/index-0.js') }}"></script>
+    <script src="{{asset('backend/assets/js/page/index-0.js')}}"></script>
     <!-- Template JS File -->
-    <script src="{{ asset('backend/assets//js/scripts.js') }}"></script>
-    <script src="{{ asset('backend/assets//js/custom.js') }}"></script>
-
-    {{-- sweetalert --}}
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{asset('backend/assets/js/scripts.js')}}"></script>
+    <script src="{{asset('backend/assets/js/custom.js')}}"></script>
 
     <script>
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-                toastr.error("{{ $error }}");
+                toastr.error("{{$error}}");
             @endforeach
         @endif
     </script>
+
+  <!-- Dynamic Delete alart -->
+
     <script>
-        $(document).ready(function() {
+        $(document).ready(function(){
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $('body').on('click', '.delete-item', function(event) {
+            $('body').on('click', '.delete-item', function(event){
                 event.preventDefault();
                 let deleteUrl = $(this).attr('href');
                 Swal.fire({
@@ -140,15 +135,15 @@
                         $.ajax({
                             type: 'DELETE',
                             url: deleteUrl,
-                            success: function(data) {
-                                if (data.status == 'success') {
+                            success: function(data){
+                                if(data.status == 'success'){
                                     Swal.fire(
                                         'Deleted!',
                                         data.message,
                                         'success'
                                     )
                                     window.location.reload();
-                                } else if (data.status == 'error') {
+                                }else if (data.status == 'error'){
                                     Swal.fire(
                                         'Cant Delete',
                                         data.message,
@@ -156,7 +151,7 @@
                                     )
                                 }
                             },
-                            error: function(xhr, status, error) {
+                            error: function(xhr, status, error){
                                 console.log(error);
                             }
                         })
@@ -168,5 +163,4 @@
 
     @stack('scripts')
 </body>
-
 </html>

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->text('banner');
             $table->string('phone');
             $table->string('email');
-            $table->string('shop_name')->nullable();
             $table->text('address');
             $table->text('description');
             $table->text('fb_link')->nullable();

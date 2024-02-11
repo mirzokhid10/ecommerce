@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Cache;
 // use Flasher\Laravel\Http\Request;
 use Illuminate\Http\Request;
 use App\DataTables\SliderDataTable;
-
 class SliderController extends Controller
 {
     use ImageUploadTrait;
@@ -35,9 +34,9 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'banner' => ['required', 'image', 'max:2000'],
+            'banner' => ['required','image', 'max:2000'],
             'type' => ['string', 'max:200'],
-            'title' => ['required', 'max:200'],
+            'title' => ['required','max:200'],
             'starting_price' => ['max:200'],
             'btn_url' => ['url'],
             'serial' => ['required', 'integer'],
@@ -58,7 +57,7 @@ class SliderController extends Controller
         $slider->status = $request->status;
         $slider->save();
 
-        // Cache::forget('sliders');
+        Cache::forget('sliders');
 
         toastr('Created Successfully!', 'success');
 
@@ -88,9 +87,9 @@ class SliderController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'banner' => ['nullable', 'image', 'max:2000'],
+            'banner' => ['nullable','image', 'max:2000'],
             'type' => ['string', 'max:200'],
-            'title' => ['required', 'max:200'],
+            'title' => ['required','max:200'],
             'strating_price' => ['max:200'],
             'btn_url' => ['url'],
             'serial' => ['required', 'integer'],

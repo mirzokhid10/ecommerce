@@ -15,14 +15,14 @@ class ProductVariantItemController extends Controller
     {
         $product = Product::findOrFail($productId);
         $variant = ProductVariant::findOrFail($variantId);
-        return $dataTable->render('admin.product.products-variant-item.index', compact('product', 'variant'));
+        return $dataTable->render('admin.product.product-variant-item.index', compact('product', 'variant'));
     }
 
     public function create(string $productId, string $variantId)
     {
         $variant = ProductVariant::findOrFail($variantId);
         $product = Product::findOrFail($productId);
-        return view('admin.product.products-variant-item.create', compact('variant', 'product'));
+        return view('admin.product.product-variant-item.create', compact('variant', 'product'));
     }
 
     /** Store data */
@@ -54,7 +54,7 @@ class ProductVariantItemController extends Controller
     public function edit(string $variantItemId)
     {
         $variantItem = ProductVariantItem::findOrFail($variantItemId);
-        return view('admin.product.products-variant-item.edit', compact('variantItem'));
+        return view('admin.product.product-variant-item.edit', compact('variantItem'));
     }
 
     public function update(Request $request, string $variantItemId)
@@ -76,8 +76,7 @@ class ProductVariantItemController extends Controller
         toastr('Update Successfully!', 'success', 'success');
 
         return redirect()->route('admin.products-variant-item.index',
-        ['productId' => $variantItem->productVariant->product_id,
-        'variantId' => $variantItem->product_variant_id]);
+        ['productId' => $variantItem->productVariant->product_id, 'variantId' => $variantItem->product_variant_id]);
     }
 
     public function destroy(string $variantItemId)

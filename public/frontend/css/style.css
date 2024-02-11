@@ -9476,3 +9476,11 @@ a:not([href]):not([class]):hover {
 .wsus__input label{
     margin-bottom: 5px;
 }
+
+.wsus__input .form-control{
+    padding: .65rem .75rem !important;
+}
+
+.delete-item {
+    margin: 0 4px 0 6px !important;
+}
